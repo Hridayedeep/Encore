@@ -1,0 +1,162 @@
+[
+  {
+    "id": "act_badminton_dhyanchand",
+    "name": "Badminton",
+    "location": "Dhyanchand Stadium",
+    "category": "activity",
+    "vibeTags": ["lively", "budget_friendly"],
+    "pricePerHour": 500
+  },
+  {
+    "id": "act_bowling_strikers",
+    "name": "Bowling",
+    "location": "Strikers Lanes",
+    "category": "activity",
+    "vibeTags": ["lively", "budget_friendly"],
+    "pricePerHour": 450
+  },
+  {
+    "id": "act_movie_pvr",
+    "name": "Movie",
+    "location": "PVR Cineplex",
+    "category": "activity",
+    "vibeTags": ["chill", "romantic", "budget_friendly"],
+    "pricePerHead": 300
+  },
+  {
+    "id": "act_escape_room",
+    "name": "Escape Room",
+    "location": "Mystery Rooms",
+    "category": "activity",
+    "vibeTags": ["intellectual", "lively", "premium"],
+    "pricePerHead": 800
+  },
+  {
+    "id": "act_karaoke",
+    "name": "Karaoke Night",
+    "location": "Kitty Su Lounge",
+    "category": "activity",
+    "vibeTags": ["lively"],
+    "pricePerHead": 600
+  },
+  {
+    "id": "act_pottery",
+    "name": "Pottery Workshop",
+    "location": "The Clay Studio",
+    "category": "activity",
+    "vibeTags": ["chill", "intellectual"],
+    "pricePerHead": 700
+  },
+  {
+    "id": "act_comedy",
+    "name": "Comedy Show",
+    "location": "Canvas Laugh Club",
+    "category": "activity",
+    "vibeTags": ["lively", "premium"],
+    "pricePerHead": 900
+  },
+  {
+    "id": "act_stargazing",
+    "name": "Stargazing",
+    "location": "Rooftop Observatory",
+    "category": "activity",
+    "vibeTags": ["romantic", "chill", "intellectual", "budget_friendly"],
+    "pricePerHead": 500
+  },
+  {
+    "id": "act_arcade",
+    "name": "Arcade Gaming",
+    "location": "Smaaash",
+    "category": "activity",
+    "vibeTags": ["lively", "budget_friendly"],
+    "pricePerHour": 400
+  },
+  {
+    "id": "act_art_walk",
+    "name": "Art Gallery Walk",
+    "location": "National Gallery of Modern Art",
+    "category": "activity",
+    "vibeTags": ["intellectual", "chill", "budget_friendly"],
+    "pricePerHead": 200
+  },
+  {
+    "id": "food_chillis",
+    "name": "Snacks & Starters",
+    "location": "Chilli's",
+    "category": "food",
+    "vibeTags": ["chill", "food_focused", "continental"],
+    "pricePerHead": 1000
+  },
+  {
+    "id": "food_yellow_chilli",
+    "name": "Dinner",
+    "location": "The Yellow Chilli",
+    "category": "food",
+    "vibeTags": ["romantic", "food_focused", "north_indian"],
+    "pricePerHead": 1200
+  },
+  {
+    "id": "food_cafe_blue",
+    "name": "Coffee & Dessert",
+    "location": "Café Blue",
+    "category": "food",
+    "vibeTags": ["chill", "intellectual", "cafe", "budget_friendly"],
+    "pricePerHead": 700
+  },
+  {
+    "id": "food_barbeque_nation",
+    "name": "Dinner",
+    "location": "Barbeque Nation",
+    "category": "food",
+    "vibeTags": ["lively", "food_focused", "bbq", "premium"],
+    "pricePerHead": 1500
+  },
+  {
+    "id": "food_sky_lounge",
+    "name": "Rooftop Dinner",
+    "location": "Sky High Lounge",
+    "category": "food",
+    "vibeTags": ["romantic", "lively", "food_focused", "continental", "premium"],
+    "pricePerHead": 1800
+  },
+  {
+    "id": "food_street_crawl",
+    "name": "Street Food Crawl",
+    "location": "Chandni Chowk Food Trail",
+    "category": "food",
+    "vibeTags": ["lively", "food_focused", "street_food", "budget_friendly"],
+    "pricePerHead": 600
+  },
+  {
+    "id": "food_indian_accent",
+    "name": "Fine Dining",
+    "location": "Indian Accent",
+    "category": "food",
+    "vibeTags": ["romantic", "intellectual", "food_focused", "north_indian", "premium"],
+    "pricePerHead": 3500
+  },
+  {
+    "id": "food_toit_brewpub",
+    "name": "Craft Brews & Bites",
+    "location": "Toit Brewpub",
+    "category": "food",
+    "vibeTags": ["lively", "chill", "food_focused", "continental"],
+    "pricePerHead": 1100
+  },
+  {
+    "id": "food_greenr_cafe",
+    "name": "Brunch",
+    "location": "Greenr Café",
+    "category": "food",
+    "vibeTags": ["chill", "intellectual", "food_focused", "cafe", "budget_friendly"],
+    "pricePerHead": 650
+  },
+  {
+    "id": "food_chaayos",
+    "name": "Chai & Snacks",
+    "location": "Chaayos",
+    "category": "food",
+    "vibeTags": ["chill", "food_focused", "street_food", "budget_friendly"],
+    "pricePerHead": 400
+  }
+]

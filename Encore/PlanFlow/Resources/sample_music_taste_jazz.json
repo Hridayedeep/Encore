@@ -1,0 +1,7 @@
+[
+  { "genre": "Jazz", "playCount": 48 },
+  { "genre": "Classical", "playCount": 40 },
+  { "genre": "Opera", "playCount": 18 },
+  { "genre": "Soundtrack", "playCount": 22 },
+  { "genre": "Singer/Songwriter", "playCount": 15 }
+]

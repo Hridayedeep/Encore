@@ -1,0 +1,7 @@
+[
+  { "genre": "EDM", "playCount": 50 },
+  { "genre": "Hip-Hop/Rap", "playCount": 40 },
+  { "genre": "Pop", "playCount": 30 },
+  { "genre": "Dance", "playCount": 25 },
+  { "genre": "House", "playCount": 20 }
+]

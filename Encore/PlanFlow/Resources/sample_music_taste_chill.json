@@ -1,0 +1,7 @@
+[
+  { "genre": "Lo-Fi", "playCount": 42 },
+  { "genre": "Indie", "playCount": 35 },
+  { "genre": "Jazz", "playCount": 20 },
+  { "genre": "EDM", "playCount": 15 },
+  { "genre": "R&B/Soul", "playCount": 10 }
+]

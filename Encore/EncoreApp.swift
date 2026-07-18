@@ -16,7 +16,8 @@ struct EncoreApp: App {
 
     var body: some Scene {
         WindowGroup {
-            EncoreRootView()
+            WelcomeScreen()
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -1,0 +1,81 @@
+{
+  "questionnaireId": "plan_my_evening_v1",
+  "title": "Plan My Evening",
+  "questions": [
+    {
+      "id": "vibe",
+      "question": "What is your vibe?",
+      "subtext": "Pick as many as you like",
+      "type": "multi_select",
+      "maps_to_field": "preferenceTags",
+      "required": true,
+      "options": [
+        { "value": "lively", "label": "Lively", "emoji": "🎉" },
+        { "value": "romantic", "label": "Romantic", "emoji": "🌹" },
+        { "value": "chill", "label": "Chill", "emoji": "🧘" },
+        { "value": "intellectual", "label": "Intellectual", "emoji": "🧠" },
+        { "value": "food_focused", "label": "Food-focused", "emoji": "🍽️" }
+      ]
+    },
+    {
+      "id": "cuisine",
+      "question": "Any cuisine you're craving?",
+      "subtext": "Optional — pick as many as you like",
+      "type": "multi_select",
+      "maps_to_field": "preferenceTags",
+      "required": false,
+      "options": [
+        { "value": "north_indian", "label": "North Indian", "emoji": "🍛" },
+        { "value": "street_food", "label": "Street food", "emoji": "🌮" },
+        { "value": "cafe", "label": "Café & continental", "emoji": "☕" },
+        { "value": "bbq", "label": "BBQ & grill", "emoji": "🍢" },
+        { "value": "continental", "label": "Continental", "emoji": "🍝" }
+      ]
+    },
+    {
+      "id": "budget",
+      "question": "What's your budget for tonight?",
+      "type": "single_select",
+      "maps_to_field": "preferenceTags",
+      "required": true,
+      "options": [
+        { "value": "budget_friendly", "label": "Budget-friendly", "emoji": "💸" },
+        { "value": "mid_range", "label": "Mid-range", "emoji": "💰" },
+        { "value": "premium", "label": "Premium", "emoji": "✨" }
+      ]
+    },
+    {
+      "id": "group_size",
+      "question": "Who's joining?",
+      "subtext": "We'll size the total cost around this",
+      "type": "single_select",
+      "maps_to_field": "groupSize",
+      "required": true,
+      "options": [
+        { "value": "solo", "label": "Just me", "emoji": "🧍", "numeric_value": 1 },
+        { "value": "couple", "label": "Date night", "emoji": "💑", "numeric_value": 2 },
+        { "value": "small_group", "label": "Small group", "emoji": "👯", "numeric_value": 4 },
+        { "value": "big_group", "label": "Big group", "emoji": "🎊", "numeric_value": 8 }
+      ]
+    },
+    {
+      "id": "going_out",
+      "question": "Do you want to go out or stay in?",
+      "type": "single_select",
+      "maps_to_field": "goingOut",
+      "required": true,
+      "options": [
+        { "value": "go_out", "label": "Go out", "available": true },
+        { "value": "stay_in", "label": "Stay in", "available": false, "unavailable_reason": "Coming soon" }
+      ]
+    },
+    {
+      "id": "start_time",
+      "question": "When are you starting?",
+      "subtext": "We'll build tonight's plan around this",
+      "type": "date",
+      "maps_to_field": "startTime",
+      "required": true
+    }
+  ]
+}
