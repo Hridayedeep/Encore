@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FeedView: View {
     @Bindable var store: EncoreStore
-    @Binding var path: [EncoreRoute]
+    @EnvironmentObject private var flow: PlanFlowViewModel
     @State private var didPulse = false
 
     var body: some View {
@@ -88,7 +88,7 @@ struct FeedView: View {
         let nudge = store.nudge(for: scored.event)
         Button {
             EncoreHaptics.shared.selection()
-            path.append(.detail(scored.event))
+            flow.path.append(EncoreRoute.detail(scored.event))
         } label: {
             VStack(alignment: .leading, spacing: 0) {
                 EncorePoster(event: scored.event, height: 240, cornerRadius: 24)
@@ -134,7 +134,7 @@ struct FeedView: View {
     private func shortlistCard(_ scored: ScoredEvent) -> some View {
         Button {
             EncoreHaptics.shared.selection()
-            path.append(.detail(scored.event))
+            flow.path.append(EncoreRoute.detail(scored.event))
         } label: {
             HStack(spacing: 14) {
                 EncorePoster(event: scored.event, height: 96, cornerRadius: 16)

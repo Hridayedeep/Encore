@@ -11,7 +11,7 @@ import SwiftUI
 struct OccasionView: View {
     @Bindable var store: EncoreStore
     let event: Event
-    @Binding var path: [EncoreRoute]
+    @EnvironmentObject private var flow: PlanFlowViewModel
 
     @State private var includeDinner = true
     @State private var includePreDrinks = true
@@ -163,7 +163,7 @@ struct OccasionView: View {
             }
             Button {
                 EncoreHaptics.shared.selection()
-                path.append(.payment)
+                flow.path.append(EncoreRoute.payment)
             } label: {
                 Label("Confirm the night", systemImage: "checkmark.circle.fill")
                     .font(.headline)

@@ -18,29 +18,33 @@ enum EncoreRoute: Hashable {
 
 struct EncoreRootView: View {
     @State private var store = EncoreStore()
-    @State private var path: [EncoreRoute] = []
+    @EnvironmentObject private var flow: PlanFlowViewModel
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        NavigationStack(path: $path) {
-            Group {
-                if store.activePersona == nil {
-                    ConnectView(store: store)
-                } else {
-                    FeedView(store: store, path: $path)
-                }
+        // No NavigationStack here — this screen is itself pushed onto
+        // WelcomeScreen's single shared stack, and every Encore screen below
+        // (Feed/Detail/Occasion/Payment/Success) pushes further EncoreRoute
+        // values onto that same `flow.path` rather than owning a stack of
+        // its own. Nesting a second NavigationStack here crashes SwiftUI's
+        // navigation-state restoration (AnyNavigationPath.Error.comparisonTypeMismatch).
+        Group {
+            if store.activePersona == nil {
+                ConnectView(store: store)
+            } else {
+                FeedView(store: store)
             }
-            .navigationDestination(for: EncoreRoute.self) { route in
-                switch route {
-                case .detail(let event):
-                    EventDetailView(store: store, event: event, path: $path)
-                case .occasion(let event):
-                    OccasionView(store: store, event: event, path: $path)
-                case .payment:
-                    EncorePaymentView(store: store, path: $path)
-                case .success:
-                    EncoreSuccessView(store: store, path: $path)
-                }
+        }
+        .navigationDestination(for: EncoreRoute.self) { route in
+            switch route {
+            case .detail(let event):
+                EventDetailView(store: store, event: event)
+            case .occasion(let event):
+                OccasionView(store: store, event: event)
+            case .payment:
+                EncorePaymentView(store: store)
+            case .success:
+                EncoreSuccessView(store: store)
             }
         }
         .tint(EncoreTheme.magenta)
@@ -67,12 +71,17 @@ struct EncoreRootView: View {
             store.pendingNotificationRoute = nil
             switch route.stage {
             case .match:
-                path = [.detail(event)]
+                flow.path = NavigationPath()
+                flow.path.append(PlanFlowRoute.encoreConnect)
+                flow.path.append(EncoreRoute.detail(event))
             case .preEvent, .postEvent:
                 // Route into the occasion so the Blinkit/Zomato cards are visible.
                 Task {
                     _ = await store.buildOccasion(for: event)
-                    path = [.detail(event), .occasion(event)]
+                    flow.path = NavigationPath()
+                    flow.path.append(PlanFlowRoute.encoreConnect)
+                    flow.path.append(EncoreRoute.detail(event))
+                    flow.path.append(EncoreRoute.occasion(event))
                 }
             }
         }

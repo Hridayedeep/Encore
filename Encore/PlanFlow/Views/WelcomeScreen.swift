@@ -46,6 +46,10 @@ struct WelcomeScreen: View {
         case .bookingDetails:
             BookingDetailsView()
         case .encoreConnect:
+            // EncoreRootView has no NavigationStack of its own — every
+            // Encore screen (Connect/Feed/Detail/Occasion/Payment/Success)
+            // pushes onto this single shared stack via `flow.path`, so
+            // there's only ever one NavigationStack in the app.
             EncoreRootView()
         }
     }
@@ -81,9 +85,9 @@ private struct WelcomeContent: View {
         Button(action: {
             flow.path.append(PlanFlowRoute.questionnaire)
         }) {
-            Text("Plan my evening")
+            PlanEveningCard()
         }
-        .buttonStyle(.primaryCTA)
+        .buttonStyle(.plain)
     }
 
     private var connectAppleMusicButton: some View {
@@ -94,6 +98,41 @@ private struct WelcomeContent: View {
                 .multilineTextAlignment(.center)
         }
         .buttonStyle(.secondaryCTA)
+    }
+}
+
+private struct PlanEveningCard: View {
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            Image("go_carting")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+
+            LinearGradient(
+                stops: [
+                    .init(color: .clear, location: 0),
+                    .init(color: .black.opacity(0.75), location: 0.45),
+                    .init(color: .black.opacity(0.97), location: 1)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 130)
+
+            HStack {
+                Text("Plan your evening")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.white)
+                Spacer()
+                Image(systemName: "arrow.right")
+            }
+            .padding(.bottom, 16)
+            .padding(.horizontal, 24)
+        }
+        .frame(height: 180)
+        .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 

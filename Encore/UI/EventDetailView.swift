@@ -12,7 +12,7 @@ import MapKit
 struct EventDetailView: View {
     @Bindable var store: EncoreStore
     let event: Event
-    @Binding var path: [EncoreRoute]
+    @EnvironmentObject private var flow: PlanFlowViewModel
 
     private var scored: ScoredEvent? {
         store.shortlist.first { $0.event.id == event.id }
@@ -129,7 +129,7 @@ struct EventDetailView: View {
                 EncoreHaptics.shared.selection()
                 Task {
                     _ = await store.buildOccasion(for: event)
-                    path.append(.occasion(event))
+                    flow.path.append(EncoreRoute.occasion(event))
                 }
             } label: {
                 Label("Plan my night", systemImage: "sparkles")

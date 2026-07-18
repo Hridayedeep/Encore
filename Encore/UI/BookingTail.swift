@@ -13,7 +13,7 @@ import EventKit
 
 struct EncorePaymentView: View {
     @Bindable var store: EncoreStore
-    @Binding var path: [EncoreRoute]
+    @EnvironmentObject private var flow: PlanFlowViewModel
     @State private var processing = false
     @State private var failed = false
 
@@ -83,7 +83,7 @@ struct EncorePaymentView: View {
             if success {
                 store.confirmBooking()
                 EncoreHaptics.shared.success()
-                path.append(.success)
+                flow.path.append(EncoreRoute.success)
             } else {
                 failed = true
                 EncoreHaptics.shared.error()
@@ -96,7 +96,7 @@ struct EncorePaymentView: View {
 
 struct EncoreSuccessView: View {
     @Bindable var store: EncoreStore
-    @Binding var path: [EncoreRoute]
+    @EnvironmentObject private var flow: PlanFlowViewModel
     @State private var drawn = false
     @State private var calendarAdded = false
 
@@ -169,7 +169,12 @@ struct EncoreSuccessView: View {
                 }
 
                 Button {
-                    path.removeAll()
+                    // Pop back to the Encore Connect/Feed screen (the first
+                    // entry pushed for this flow), not all the way out to
+                    // WelcomeScreen's home.
+                    if flow.path.count > 1 {
+                        flow.path.removeLast(flow.path.count - 1)
+                    }
                 } label: {
                     Text("Back to For You")
                         .font(.subheadline.bold()).frame(maxWidth: .infinity).padding(.vertical, 14)
